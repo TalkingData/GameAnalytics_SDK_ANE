@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.talkingdata.game.TalkingDataGA"/>
+    <classEntry path="com.talkingdata.game.util.GameFunctionType"/>
+    <classEntry path="com.talkingdata.game.TDGAAccount"/>
+    <classEntry path="com.talkingdata.game.TDAccountType"/>
+    <classEntry path="com.talkingdata.game.TDGAVirtualCurrency"/>
+    <classEntry path="com.talkingdata.game.TDGAItem"/>
+    <classEntry path="com.talkingdata.game.TDGAMission"/>
+    <classEntry path="com.talkingdata.game.TDCustomEvent"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

@@ -1,0 +1,257 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ADCE9072174CD3D900235385 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADCE9071174CD3D900235385 /* Foundation.framework */; };
+		ADCE9082174CD62D00235385 /* TDAneExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCE9081174CD62D00235385 /* TDAneExtension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ADCE906C174CD3D900235385 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		ADCE906E174CD3D900235385 /* libLibIOS_Game.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLibIOS_Game.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADCE9071174CD3D900235385 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ADCE9075174CD3D900235385 /* LibIOS_Game-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibIOS_Game-Prefix.pch"; sourceTree = "<group>"; };
+		ADCE907F174CD40300235385 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		ADCE9081174CD62D00235385 /* TDAneExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAneExtension.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADCE906B174CD3D900235385 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADCE9072174CD3D900235385 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ADCE9065174CD3D900235385 = {
+			isa = PBXGroup;
+			children = (
+				ADCE9073174CD3D900235385 /* LibIOS_Game */,
+				ADCE9070174CD3D900235385 /* Frameworks */,
+				ADCE906F174CD3D900235385 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ADCE906F174CD3D900235385 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADCE906E174CD3D900235385 /* libLibIOS_Game.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADCE9070174CD3D900235385 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADCE9071174CD3D900235385 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADCE9073174CD3D900235385 /* LibIOS_Game */ = {
+			isa = PBXGroup;
+			children = (
+				ADCE907F174CD40300235385 /* FlashRuntimeExtensions.h */,
+				ADCE9074174CD3D900235385 /* Supporting Files */,
+				ADCE9081174CD62D00235385 /* TDAneExtension.m */,
+			);
+			path = LibIOS_Game;
+			sourceTree = "<group>";
+		};
+		ADCE9074174CD3D900235385 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADCE9075174CD3D900235385 /* LibIOS_Game-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADCE906D174CD3D900235385 /* LibIOS_Game */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADCE907C174CD3DA00235385 /* Build configuration list for PBXNativeTarget "LibIOS_Game" */;
+			buildPhases = (
+				ADCE906A174CD3D900235385 /* Sources */,
+				ADCE906B174CD3D900235385 /* Frameworks */,
+				ADCE906C174CD3D900235385 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LibIOS_Game;
+			productName = LibIOS_Game;
+			productReference = ADCE906E174CD3D900235385 /* libLibIOS_Game.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADCE9066174CD3D900235385 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = talkingData;
+			};
+			buildConfigurationList = ADCE9069174CD3D900235385 /* Build configuration list for PBXProject "LibIOS_Game" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ADCE9065174CD3D900235385;
+			productRefGroup = ADCE906F174CD3D900235385 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADCE906D174CD3D900235385 /* LibIOS_Game */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADCE906A174CD3D900235385 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADCE9082174CD62D00235385 /* TDAneExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ADCE907A174CD3DA00235385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ADCE907B174CD3DA00235385 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADCE907D174CD3DA00235385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/LibIOS_Game.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LibIOS_Game/LibIOS_Game-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ADCE907E174CD3DA00235385 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/LibIOS_Game.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LibIOS_Game/LibIOS_Game-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADCE9069174CD3D900235385 /* Build configuration list for PBXProject "LibIOS_Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADCE907A174CD3DA00235385 /* Debug */,
+				ADCE907B174CD3DA00235385 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADCE907C174CD3DA00235385 /* Build configuration list for PBXNativeTarget "LibIOS_Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADCE907D174CD3DA00235385 /* Debug */,
+				ADCE907E174CD3DA00235385 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ADCE9066174CD3D900235385 /* Project object */;
+}

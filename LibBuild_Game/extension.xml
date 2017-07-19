@@ -1,0 +1,23 @@
+<extension xmlns="http://ns.adobe.com/air/extension/24.0">
+  <id>com.talkingdata.game</id>
+  <versionNumber>3.2.21</versionNumber>
+  <platforms>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>LibGame.jar</nativeLibrary>
+        <initializer>com.talkingdata.game.GameAnalyticsExtension</initializer>
+        <finalizer>com.talkingdata.game.GameAnalyticsExtension</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="iPhone-ARM">
+      <applicationDeployment>
+        <nativeLibrary>libGameAnalytics.a</nativeLibrary>
+        <initializer>TDGAExtensionInitializer</initializer>
+        <finalizer>TDGAContextFinalizer</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="default">
+        <applicationDeployment/>
+	</platform>
+  </platforms>
+</extension>
