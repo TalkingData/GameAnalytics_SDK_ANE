@@ -27,7 +27,7 @@
 
  	- TalkingData_Game_Analytics_SDK.jar：
  
-		在LibBuild_Game中。
+		在TalkingData官网中下载。
 
  	- android.jar：
 
@@ -37,14 +37,14 @@
 
 3. 然后右键点击项目，导出Jar文件,并重命名为 libjava_game.jar。
 
-4. 把导出的libjava_game.jar放到LibBuild_Game文件夹下，同时把从TalkingData官网下载的Game_Analytics_SDK_Android_V3.x.xx.jar也放到LibBuild_Game文件夹下。
+4. 把导出的libjava_game.jar放到LibBuild_Game文件夹下，同时把从TalkingData官网下载的Game_Analytics_SDK_Android_Vx.x.xx.jar也放到LibBuild_Game文件夹下。
  
 5. 使用jar命令合并Game_Analytics_SDK_Android_V3.x.xx.jar和刚刚导出的jar包：
 
 		mkdir tmp
 		cd tmp
 		jar -xvf 　../libjava_game.jar
-		jar -xvf 　../Game_Analytics_SDK_Android_V3.x.xx.jar
+		jar -xvf 　../Game_Analytics_SDK_Android_Vx.x.xx.jar
 		jar -cvf  LibGame.jar .
 
 确保合并后的jar包名为LibGame.jar，如不是，请重命名为LibGame.jar。把LibGame.jar放在LibBuild_Game目录下的Android-ARM文件夹下。
@@ -53,7 +53,7 @@
 
 1. 导入LibIOS_Game目录下的工程到Xcode中。
 
-2. 导入TalkingDataGA.h和libTalkingDataGA.a两个文件到Xcode工程中，文件在LibBuild_Game中。
+2. 导入TalkingDataGA.h和libTalkingDataGA.a两个文件到Xcode工程中，文件从TalkingData官网下载。
 
 3. 确保您的Build Configuration为Release状态。
 	![](http://i2.muimg.com/579600/59305650afa9697e.png)
