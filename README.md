@@ -1,6 +1,7 @@
-# TalkingData Game Analytics SDK for Flash Air
+## TalkingData Game Analytics ANE SDK
+Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，目前GitHub上提供了封装层代码，需要从 [TalkingData官网](https://www.talkingdata.com/spa/sdk/#/config) 下载最新版的 Android 和 iOS 平台 Native SDK，组合使用。
 
-### 项目简介：
+### 目录简介
 
 - LibAne_Game	：Flex Library项目。
 
@@ -10,10 +11,43 @@
 
 - LibJava_Game：用于生成jar文件的Flash Builder/Eclipse工程。
 
+### 集成说明
+1. 下载本项目（封装层）到本地；  
+2. 访问 [TalkingData官网](https://www.talkingdata.com/spa/sdk/#/config) 下载最新版的 Android 和 iOS 平台 App Analytics SDK（ Native SDK）
+	- 方法1：选择 Flash Air 平台进行功能定制；
+	- 方法2：分别选择 Android 和 iOS 平台进行功能定制，请确保两个平台功能项一致；  
+	![](/apply.png)
+3. 将下载的最新版 `Native SDK` 复制到`封装层`中，并按照 [打包ANE](#pkgANE) 方式打包，构成完整的 ANE SDK。  
+	- Android 平台  
+	将最新的 .jar 文件复制到 `LibBuild_Game` 目录下
+	- iOS 平台  
+	将最新的 .a 和 .h文件复制到 `LibBuild_Game` 目录下
+4. 按 `Native SDK` 功能选项对`封装层`代码进行必要的删减，详见“注意事项”第2条；
+5. 将 ANE SDK 集成您需要统计的工程中，并按 [集成文档](http://doc.talkingdata.com/posts/34) 进行必要配置和功能调用。
 
-## 生成ANE
+### 注意事项
+1. 分别选择 Android 和 iOS 平台进行功能定制时，请确保两个平台功能项一致。
+2. 如果申请 Native SDK 时只选择了部分功能，则需要在本项目中删除未选择功能对应的封装层代码。  
+	a) 未选择`自定义事件`功能则删除以下3部分  
+	删除 `LibAne_Game/src/com/talkingdata/game/TalkingDataGA.as` 文件中如下代码：
 
-### 准备工作
+	
+		public static function onEvent(eventID:String,map:TDCustomEvent):void
+		{
+			try{
+			if(extContext==null){
+				extContext=ExtensionContext.createExtensionContext("com.talkingdata.game",null);
+			}
+			var value:String=map.toTDString();
+			extContext.call(functionName,GameFunctionType.CusEvent,eventID,value);
+			}catch(err:Error){
+
+			}
+		}
+
+
+
+### <a name="pkgANE" ></a> 准备工作
 
 **Android:**
 
@@ -37,7 +71,7 @@
 
 3. 然后右键点击项目，导出Jar文件,并重命名为 libjava_game.jar。
 
-4. 把导出的libjava_game.jar放到LibBuild_Game文件夹下，同时把从TalkingData官网下载的Game_Analytics_SDK_Android_Vx.x.xx.jar也放到LibBuild_Game文件夹下。
+4. 把导出的libjava_game.jar放到LibBuild_Game文件夹下。
  
 5. 使用jar命令合并Game_Analytics_SDK_Android_V3.x.xx.jar和刚刚导出的jar包：
 
@@ -53,7 +87,7 @@
 
 1. 导入LibIOS_Game目录下的工程到Xcode中。
 
-2. 导入TalkingDataGA.h和libTalkingDataGA.a两个文件到Xcode工程中，文件从TalkingData官网下载。
+2. 导入TalkingDataGA.h和libTalkingDataGA.a两个文件到Xcode工程中。
 
 3. 确保您的Build Configuration为Release状态。
 	![](http://i2.muimg.com/579600/59305650afa9697e.png)
@@ -72,7 +106,7 @@
 把合成后的libLibIOS_Game.a静态库重命名为 libGameAnalytics.a ，并放到LibBuild_Game目录下的iPhone-ARM文件夹下。
 
 
-### 打包ane
+#### 打包ANE
 
 **进入到LibBuild_Game目录：**
 
@@ -100,7 +134,3 @@
 
 
 执行完成后，会在Build目录下生成名为 com.talkingdata.game.ane 的包，ane打包完成。
-
-## 集成ANE
-
-详细集成文档请查阅文档 TalkingData GameAnalytics Adobe AIR ANE 接入指南 3.1.x.pdf 。
