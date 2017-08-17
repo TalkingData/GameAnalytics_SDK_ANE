@@ -4,7 +4,7 @@ package com.talkingdata.game
 
 	public class TDGAMission
 	{
-		public static function onMessionBegin(missionID:String):void{
+		public static function onMissionBegin(missionID:String):void{
 			try{
 			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.MissionBegin,missionID);
 			}catch(err:Error){

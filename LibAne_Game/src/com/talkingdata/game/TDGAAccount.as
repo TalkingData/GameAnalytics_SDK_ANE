@@ -27,30 +27,30 @@ package com.talkingdata.game
 				
 			}
 		}
-		public  function setAccountType(countType:int):void{
+		public  function setAccountType(accountType:int):void{
 			try{
-			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_TYPE,countType);
+			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_TYPE,accountType);
 			}catch(err:Error){
 				
 			}
 		}
-		public  function setAccountName(countName:String):void{
+		public  function setAccountName(accountName:String):void{
 			try{
-			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Name,countName);
+			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Name,accountName);
 			}catch(err:Error){
 				
 			}
 		}
-		public  function setAccountAge(countAge:int):void{
+		public  function setAccountAge(age:int):void{
 			try{
-			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Age,countAge);
+			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Age,age);
 			}catch(err:Error){
 				
 			}
 		}
-		public  function setAccountLevel(countLevel:int):void{
+		public  function setAccountLevel(level:int):void{
 			try{
-			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Level,countLevel);
+			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Level,level);
 			}catch(err:Error){
 				
 			}
@@ -62,9 +62,9 @@ package com.talkingdata.game
 				
 			}
 		}
-		public  function setAccountServer(server:String):void{
+		public  function setAccountServer(gameServer:String):void{
 			try{
-			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Server,server);
+			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetAccount_Server,gameServer);
 			}catch(err:Error){
 				
 			}
