@@ -13,7 +13,7 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 
 ### 集成说明
 1. 下载本项目（封装层）到本地；  
-2. 访问 [TalkingData官网](https://www.talkingdata.com/spa/sdk/#/config) 下载最新版的 Android 和 iOS 平台 App Analytics SDK（ Native SDK）
+2. 访问 [TalkingData官网](https://www.talkingdata.com/spa/sdk/#/config) 下载最新版的 Android 和 iOS 平台 Game Analytics SDK（ Native SDK）
 	- 方法1：选择 Flash Air 平台进行功能定制；
 	- 方法2：分别选择 Android 和 iOS 平台进行功能定制，请确保两个平台功能项一致；  
 	![](/apply.png)
