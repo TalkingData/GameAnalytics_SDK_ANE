@@ -9,6 +9,7 @@ package com.talkingdata.game
 		public static var QQ:int =3;
 		public static var QQ_WEIBO:int =4;
 		public static var ND91:int =5;
+		public static var WEIXIN:int =6;
 		public static var TYPE1:int =11;
 		public static var TYPE2:int =12;
 		public static var TYPE3:int =13;
