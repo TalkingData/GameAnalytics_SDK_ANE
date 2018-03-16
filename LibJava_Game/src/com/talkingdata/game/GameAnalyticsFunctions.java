@@ -248,6 +248,9 @@ public class GameAnalyticsFunctions implements FREFunction {
 		case 5:
 			at=AccountType.ND91;
 			break;
+		case 6:
+			at=AccountType.WEIXIN;
+			break;
 		case 11:
 			at=AccountType.TYPE1;
 			break;
