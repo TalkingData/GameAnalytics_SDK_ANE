@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="com/talkingdata/game/TDGAMission" mod="1521188417000" signatureChecksum="2145081834" >
+        <def id="com.talkingdata.game:TDGAMission" /> 
+        <dep id="com.talkingdata.game.util:GameFunctionType" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.talkingdata.game:TalkingDataGA" type="e" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="_28caeeb75bc3169abc72791390cfccba79dc50e99818df09d0f2cb1c4c0c0bf5_flash_display_Sprite" mod="1521192959753" signatureChecksum="481721545" >
+        <def id="_28caeeb75bc3169abc72791390cfccba79dc50e99818df09d0f2cb1c4c0c0bf5_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/talkingdata/game/util/GameFunctionType" mod="1521188417000" signatureChecksum="3586555355" >
+        <def id="com.talkingdata.game.util:GameFunctionType" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/talkingdata/game/TDAccountType" mod="1521188417000" signatureChecksum="1228125625" >
+        <def id="com.talkingdata.game:TDAccountType" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/talkingdata/game/TalkingDataGA" mod="1521188417000" signatureChecksum="2068821770" >
+        <def id="com.talkingdata.game:TalkingDataGA" /> 
+        <dep id="com.talkingdata.game.util:GameFunctionType" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.talkingdata.game:TDCustomEvent" type="s" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/talkingdata/game/TDCustomEvent" mod="1521188417000" signatureChecksum="692148046" >
+        <def id="com.talkingdata.game:TDCustomEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/talkingdata/game/TDGAItem" mod="1521188417000" signatureChecksum="438651913" >
+        <def id="com.talkingdata.game:TDGAItem" /> 
+        <dep id="com.talkingdata.game.util:GameFunctionType" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.talkingdata.game:TalkingDataGA" type="e" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/talkingdata/game/TDGAVirtualCurrency" mod="1521188417000" signatureChecksum="2795996192" >
+        <def id="com.talkingdata.game:TDGAVirtualCurrency" /> 
+        <dep id="com.talkingdata.game.util:GameFunctionType" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.talkingdata.game:TalkingDataGA" type="e" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/talkingdata/game/TDGAAccount" mod="1521188417000" signatureChecksum="1209384492" >
+        <def id="com.talkingdata.game:TDGAAccount" /> 
+        <dep id="com.talkingdata.game.util:GameFunctionType" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.talkingdata.game:TalkingDataGA" type="e" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="84ef30a409c9c5b18a4e02572f7bd4bde6b72ed7e92a48982c6eb25389902510"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>
