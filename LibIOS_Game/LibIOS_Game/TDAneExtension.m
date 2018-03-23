@@ -90,7 +90,7 @@ void setPrivateAccountType(FREObject argv[]){
             accountType=kAccountND91;
             break;
 		case 6:
-            accountType=kAccountWEIXIN;
+            accountType=kAccountWeiXin;
             break;
         case 11:
             accountType=kAccountType1;
