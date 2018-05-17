@@ -21,15 +21,15 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 	- Android 平台  
 	将最新的 .jar 文件复制到 `LibBuild_Game` 目录下
 	- iOS 平台  
-	将最新的 .a 和 .h文件复制到 `LibBuild_Game` 目录下
+	将最新的 .a 文件复制到 `LibBuild_Game` 目录下
 4. 按 `Native SDK` 功能选项对`封装层`代码进行必要的删减，详见“注意事项”第2条；
 5. 将 ANE SDK 集成您需要统计的工程中，并按 [集成文档](http://doc.talkingdata.com/posts/34) 进行必要配置和功能调用。
 
 ### 注意事项
 1. 分别选择 Android 和 iOS 平台进行功能定制时，请确保两个平台功能项一致。
 2. 如果申请 Native SDK 时只选择了部分功能，则需要在本项目中删除未选择功能对应的封装层代码。  
-	a) 未选择`自定义事件`功能则删除以下3部分  
-	删除 `LibAne_Game/src/com/talkingdata/game/TalkingDataGA.as` 文件中如下代码：
+	如未选择`自定义事件`功能则删除以下部分  
+	a) 删除 `LibAne_Game/src/com/talkingdata/game/TalkingDataGA.as` 文件中如下代码：
 
 	
 		public static function onEvent(eventID:String,map:TDCustomEvent):void
@@ -45,7 +45,9 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 			}
 		}
 
+	b) 删除 LibBuild_Game/TalkingDataGA.h 文件中如下代码：
 
+		+ (void)onEvent:(NSString *)eventId eventData:(NSDictionary *)eventData;
 
 ### <a name="pkgANE" ></a> 准备工作
 
@@ -53,7 +55,6 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 
 1. 导入LibJava_Game到Flash Builder中。为此项目添加外部依赖包：
 
-	![](http://i2.muimg.com/579600/dace98a1e84b3d6f.png)
 
  	- FlashRuntimeExtensions.jar：
  
