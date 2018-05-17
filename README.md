@@ -28,8 +28,8 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 ### 注意事项
 1. 分别选择 Android 和 iOS 平台进行功能定制时，请确保两个平台功能项一致。
 2. 如果申请 Native SDK 时只选择了部分功能，则需要在本项目中删除未选择功能对应的封装层代码。  
-	如未选择`自定义事件`功能则删除以下部分  
-	a) 删除 `LibAne_Game/src/com/talkingdata/game/TalkingDataGA.as` 文件中如下代码：
+	a) 如未选择`自定义事件`功能则删除以下部分  
+	删除 `LibAne_Game/src/com/talkingdata/game/TalkingDataGA.as` 文件中如下代码：
 
 	
 		public static function onEvent(eventID:String,map:TDCustomEvent):void
@@ -45,9 +45,16 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 			}
 		}
 
-	b) 删除 LibBuild_Game/TalkingDataGA.h 文件中如下代码：
+	删除 LibBuild_Game/TalkingDataGA.h 文件中如下代码：
 
 		+ (void)onEvent:(NSString *)eventId eventData:(NSDictionary *)eventData;
+
+	b) 未选择`推送营销`功能则删除以下部分
+	删除 LibBuild_Game/TalkingDataGA.h 文件中如下代码：
+
+		+ (void)setDeviceToken:(NSData *)deviceToken;
+		+ (BOOL)handleTDGAPushMessage:(NSDictionary *)message;
+	
 
 ### <a name="pkgANE" ></a> 准备工作
 
