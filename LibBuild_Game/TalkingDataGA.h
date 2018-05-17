@@ -9,6 +9,38 @@
 #import <Foundation/Foundation.h>
 
 
+// 帐户类型
+typedef enum {
+    kAccountAnonymous = 0,      // 匿名帐户
+    kAccountRegistered = 1,     // 显性注册帐户
+    kAccountSinaWeibo = 2,      // 新浪微博
+    kAccountQQ = 3,             // QQ帐户
+    kAccountTencentWeibo = 4,   // 腾讯微博
+    kAccountND91 = 5,           // 91帐户
+    kAccountWeiXin = 6,         // 微信
+    kAccountType1 = 11,         // 预留1
+    kAccountType2 = 12,         // 预留2
+    kAccountType3 = 13,         // 预留3
+    kAccountType4 = 14,         // 预留4
+    kAccountType5 = 15,         // 预留5
+    kAccountType6 = 16,         // 预留6
+    kAccountType7 = 17,         // 预留7
+    kAccountType8 = 18,         // 预留8
+    kAccountType9 = 19,         // 预留9
+    kAccountType10 = 20         // 预留10
+} TDGAAccountType;
+
+// 性别
+typedef enum {
+    kGenderUnknown = 0,     // 未知
+    kGenderMale = 1,        // 男
+    kGenderFemale = 2       // 女
+} TDGAGender;
+
+
+
+
+
 @interface TalkingDataGA: NSObject
 
 /**
@@ -56,7 +88,7 @@
 + (void)setVerboseLogDisabled;
 
 /**
- *  @method setSdkType 设置SDK类型  区分开发框架使用，开发者请勿调用
+ *  @method setSDKFramework 设置SDK类型  区分开发框架使用，开发者请勿调用
  */
 + (void)setSDKFramework:(int)tag;
 
@@ -84,7 +116,7 @@
  *	@method	setAccountType  设置帐号类型
  *	@param 	accountType     账户类型        类型TDGAAccountType
  */
-- (void)setAccountType:(int)accountType;
+- (void)setAccountType:(TDGAAccountType)accountType;
 
 /**
  *	@method	setLevel    设置帐号等级
@@ -96,7 +128,7 @@
  *	@method	setGender   设置性别
  *	@param 	gender      性别      类型:TDGAGender
  */
-- (void)setGender:(int)gender;
+- (void)setGender:(TDGAGender)gender;
 
 /**
  *	@method	setAge  设置年龄
