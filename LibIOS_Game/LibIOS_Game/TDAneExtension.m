@@ -42,6 +42,7 @@ const int MissionCompleted=71;
 const int MissionFailed=72;
 
 const int CusEvent=80;
+const int SetDeviceToken=81;
 const int cmdDeviceID=1;
 const int isOpenDebugLog=2;
 const int setLocation=3;
@@ -239,6 +240,9 @@ FREObject GameAnalyticsFunctions(FREContext ctx, void* funcData, uint32_t argc, 
     
     uint32_t eventStringLen;
     const uint8_t *eventString;
+	
+	uint32_t deviceTokenLen;
+    const uint8_t *deviceToken;
     
     double_t latitude;
     double_t longitude;
@@ -338,6 +342,11 @@ FREObject GameAnalyticsFunctions(FREContext ctx, void* funcData, uint32_t argc, 
                 [TalkingDataGA onEvent:[NSString stringWithUTF8String:(char*)eventID] eventData:obj];
             }
             break;
+		case SetDeviceToken:
+			FREGetObjectAsUTF8(argv[1], &deviceTokenLen, &deviceToken);
+            NSData *data = [NSData dataWithBytes:deviceToken length:deviceTokenLen];
+			[TalkingDataGA setDeviceToken:data];
+			break;
         case cmdDeviceID:
             ;
             FRENewObjectFromUTF8(strlen([[TalkingDataGA getDeviceId] UTF8String])+1, (const uint8_t* )[[TalkingDataGA getDeviceId] UTF8String], &freObject);

@@ -1,4 +1,4 @@
-<extension xmlns="http://ns.adobe.com/air/extension/24.0">
+<extension xmlns="http://ns.adobe.com/air/extension/30.0">
   <id>com.talkingdata.game</id>
   <versionNumber>3.2.21</versionNumber>
   <platforms>

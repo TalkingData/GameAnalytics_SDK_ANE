@@ -1,4 +1,4 @@
-<platform xmlns="http://ns.adobe.com/air/extension/24.0">
+<platform xmlns="http://ns.adobe.com/air/extension/30.0">
 	<sdkVersion>8.0</sdkVersion>
 	<linkerOptions>
 		<option>-w</option>
@@ -6,6 +6,7 @@
 		<option>-framework AdSupport</option>
 		<option>-framework Security</option>		
 		<option>-framework CoreTelephony</option>
+		<option>-framework UserNotifications</option>
 		<option>-lz</option>
 	</linkerOptions>
 </platform>

@@ -78,17 +78,17 @@ package com.talkingdata.game
 
 			}
 		}
+		
+		public static function setDeviceToken(deviceToken:String):void{
+			try{
+			if(extContext==null){
+				extContext=ExtensionContext.createExtensionContext("com.talkingdata.game",null);
+			}
+			extContext.call(functionName,GameFunctionType.SetDeviceToken,deviceToken);
+			}catch(err:Error){
 
-//		public static function test():String{
-//			try{
-//				if(extContext==null){
-//					extContext=ExtensionContext.createExtensionContext("com.talkingdata.game",null);
-//				}
-//				return extContext.call(functionName,100).toString();
-//			}catch(err:Error){
-//
-//			}
-//			return "error";
-//		}
+			}
+		}
+
 	}
 }

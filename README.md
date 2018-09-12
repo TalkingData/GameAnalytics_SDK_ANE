@@ -16,7 +16,7 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 2. 访问 [TalkingData官网](https://www.talkingdata.com/spa/sdk/#/config) 下载最新版的 Android 和 iOS 平台 Game Analytics SDK（ Native SDK）
 	- 方法1：选择 Flash Air 平台进行功能定制；
 	- 方法2：分别选择 Android 和 iOS 平台进行功能定制，请确保两个平台功能项一致；  
-	![](/apply.png)
+	![](/image/apply.png)
 3. 将下载的最新版 `Native SDK` 复制到`封装层`中，并按照 [打包ANE](#pkgANE) 方式打包，构成完整的 ANE SDK。  
 	- Android 平台  
 	将最新的 .jar 文件复制到 `LibBuild_Game` 目录下
@@ -62,6 +62,7 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 
 1. 导入LibJava_Game到Flash Builder中。为此项目添加外部依赖包：
 
+	![](/image/importJar.png)
 
  	- FlashRuntimeExtensions.jar：
  
@@ -98,11 +99,11 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 2. 导入TalkingDataGA.h和libTalkingDataGA.a两个文件到Xcode工程中。
 
 3. 确保您的Build Configuration为Release状态。
-	![](http://i2.muimg.com/579600/59305650afa9697e.png)
+	![](/image/XcodeBuildConfig.png)
 
 4. 先选择设备类型为iPhone ，执行 command + B，会在Products目录下生成对应的libLibIOS_Game.a包；再选择设备类型为iPhoneSimulator，执行 command + B，也会在Products目录下生成对应的libLibIOS_Game.a包。如下图：
 
-	![](http://i2.muimg.com/579600/0cc14c9424cb64a2.png)
+	![](/image/generateLib.png)
 
 5. 使用命令将两个静态库合并：
 
@@ -120,13 +121,13 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 
 1. 修改extension.xml中的namespace的版本号。如
 
-		<extension xmlns="http://ns.adobe.com/air/extension/24.0">
+		<extension xmlns="http://ns.adobe.com/air/extension/30.0">
 
 	把 24.0 替换为本地adt版本。
 
 2. 修改iPhone-ARM文件夹下的platform.xml中的namespace的版本号。如
 
-		<platform xmlns="http://ns.adobe.com/air/extension/24.0">
+		<platform xmlns="http://ns.adobe.com/air/extension/30.0">
 
 	把 24.0 替换为本地adt版本。
 
@@ -142,3 +143,162 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 
 
 执行完成后，会在Build目录下生成名为 com.talkingdata.game.ane 的包，ane打包完成。
+
+
+### 集成 TalkingData 推送营销功能
+
+#### Android:
+
+在您的应用的配置文件（例如 `XXXXDemo-app.xml`）的 Android 节点中添加如下配置，SDK在启动时就会默认启用推送功能：
+
+	<android>
+        <colorDepth>16bit</colorDepth>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
+
+				<!----------------------------需添加的配置 start------------------------------->
+
+                <uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+                <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+                <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+                <!-- 允许App开机启动，来接收推送 -->
+				<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+				<!--发送持久广播 -->
+				<uses-permission android:name="android.permission.BROADCAST_STICKY"></uses-permission>
+				<!-- 修改全局系统设置-->
+				<uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+				<!-- 允许振动，在接收推送时提示客户 -->
+				<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+				<!-- 侦测Wifi 变化，以针对不同 Wifi 控制最佳心跳频率，确保push的通道稳定 -->
+				<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+				<!-- 此权限用于在接到推送时，可唤醒屏幕，可选择性添加权限 -->
+				<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+                
+                
+                <application>
+	                <service android:name="com.gametalkingdata.push.service.PushService" android:process=":push" android:exported="true"></service>
+	                <receiver android:name="com.gametalkingdata.push.service.PushServiceReceiver" android:exported="true">
+					<intent-filter>
+					    <action android:name="android.intent.action.CMD"></action>
+					    <action android:name="android.talkingdata.action.notification.SHOW"></action>
+					    <action android:name="android.talkingdata.action.media.MESSAGE"></action>
+					    <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+					    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
+					    <action android:name="android.intent.action.USER_PRESENT"></action>
+					</intent-filter>
+					</receiver>
+					<receiver android:name="com.tendcloud.tenddata.TalkingDataMessageReceiver" android:enabled="true">
+					<intent-filter>
+					    <action android:name="android.talkingdata.action.media.SILENT"></action>
+					    <action android:name="android.talkingdata.action.media.TD.TOKEN"></action>
+					</intent-filter>
+					<intent-filter>
+					    <action android:name="com.talkingdata.notification.click"></action>
+					    <action android:name="com.talkingdata.message.click"></action>
+					</intent-filter>
+					</receiver>
+                </application>
+               
+				<!----------------------------需添加的配置 end------------------------------->
+            </manifest>
+			
+		]]></manifestAdditions>
+    </android>
+
+
+#### iOS:
+
+1. 确认应用的 id 和您在 Apple 开发者官网上申请的应用的 Bundle ID 保持一致。
+
+2. 在您的应用的配置文件（例如 `XXXXDemo-app.xml`）的 iPhone 节点中添加如下配置：
+
+		<iPhone>
+	        <InfoAdditions><![CDATA[
+				<key>UIDeviceFamily</key>
+				<array>
+					<string>1</string>
+					<string>2</string>
+				</array>
+			]]></InfoAdditions>
+			
+			<!------------------需添加的配置 start------------------------>
+	
+			<Entitlements><![CDATA[ 
+	            <key>aps-environment</key> 
+				<!-- 如果应用为生产环境，则将 development 替换为 production -->
+	            <string>development</string> 
+	        ]]></Entitlements> 
+	
+			<!------------------需添加的配置 end------------------------>
+	
+	        <requestedDisplayResolution>high</requestedDisplayResolution>
+	    </iPhone>
+
+3. 在应用中添加获取 deviceToken 流程：
+
+		package
+		{
+			import com.talkingdata.game.TDCustomEvent;
+			import com.talkingdata.game.TalkingDataGA;
+			
+			import flash.display.Sprite;
+			import flash.display.StageAlign;
+			import flash.display.StageScaleMode;
+			import flash.events.Event;
+			import flash.events.RemoteNotificationEvent;
+			import flash.notifications.RemoteNotifier;
+			import flash.notifications.RemoteNotifierSubscribeOptions;
+		
+		
+			public class DemoApp extends Sprite
+			{
+		
+				private var subscribeOptions:RemoteNotifierSubscribeOptions = new RemoteNotifierSubscribeOptions(); 
+				private var remoteNot:RemoteNotifier = new RemoteNotifier();
+			
+				public function DemoApp()
+				{
+					super();
+				
+					stage.align = StageAlign.TOP_LEFT;
+					stage.scaleMode = StageScaleMode.NO_SCALE;
+				
+					TalkingDataGA.onStart("08111CC162F442038E191C8472A0FE9A","talkingdata");
+							
+					remoteNot.addEventListener(RemoteNotificationEvent.TOKEN, tokenHandler);
+					this.stage.addEventListener(Event.ACTIVATE, activateHandler);
+				}
+			
+				public function activateHandler(e:Event):void{ 
+					if(RemoteNotifier.supportedNotificationStyles.toString() != "") 
+					{     
+						// Before subscribing to push notifications, ensure the device supports it. 
+                        // supportedNotificationStyles returns the types of notifications 
+                        // that the OS platform supports 
+						remoteNot.subscribe(subscribeOptions); 
+					} 
+				} 
+			
+				public function tokenHandler(e:RemoteNotificationEvent):void
+				{
+					// If the subscribe() request succeeds, a RemoteNotificationEvent of 
+                    // type TOKEN is received, from which you retrieve e.tokenId,
+					// which you use to register with TalkingData SDK.
+					com.talkingdata.game.TalkingDataGA.setDeviceToken(e.tokenId);
+				}
+			
+			}
+		}
+
+4. 在 Apple 开发者官网上确认您的应用开启了 Push Notifications 功能。
+
+	<img src="/image/push_enable.png" />
+
+5. 将应用对应的推送证书导出为 p12 格式， 并在 TalkingData 官网上的推送配置中上传证书。
+
+	<img src="/image/iOS_push_configuration.png" />
+
+
+
