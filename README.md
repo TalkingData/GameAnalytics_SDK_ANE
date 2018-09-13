@@ -123,13 +123,13 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 
 		<extension xmlns="http://ns.adobe.com/air/extension/30.0">
 
-	把 24.0 替换为本地adt版本。
+	把 30.0 替换为本地adt版本。
 
 2. 修改iPhone-ARM文件夹下的platform.xml中的namespace的版本号。如
 
 		<platform xmlns="http://ns.adobe.com/air/extension/30.0">
 
-	把 24.0 替换为本地adt版本。
+	把 30.0 替换为本地adt版本。
 
 
 
