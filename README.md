@@ -302,3 +302,5 @@ Game Analytics ANE 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，�
 
 
 
+**注： iOS 推送暂时无法统计 “进入应用” 指标。**
+
