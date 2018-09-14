@@ -344,8 +344,8 @@ FREObject GameAnalyticsFunctions(FREContext ctx, void* funcData, uint32_t argc, 
             break;
 		case SetDeviceToken:
 			FREGetObjectAsUTF8(argv[1], &deviceTokenLen, &deviceToken);
-            NSData *data = [NSData dataWithBytes:deviceToken length:deviceTokenLen];
-			[TalkingDataGA setDeviceToken:data];
+            NSString *token  = [NSString stringWithUTF8String:(char*)deviceToken];
+			[TalkingDataGA setDeviceToken:(id)token];
 			break;
         case cmdDeviceID:
             ;
