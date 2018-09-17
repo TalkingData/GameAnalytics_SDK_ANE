@@ -34,6 +34,7 @@ public class TDFunctionType {
 	public final static int MissionFailed=72;
 	
 	public final static int CusEvent=80;
+	public final static int setPushDisabled=82;
 	
 	public final static int GetDeviceID=1;
 	public final static int openDebugLog=2;

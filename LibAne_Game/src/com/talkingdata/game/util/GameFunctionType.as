@@ -36,6 +36,7 @@ package com.talkingdata.game.util
 		
 		public static var CusEvent:int=80;
 		public static var SetDeviceToken:int=81;
+		public static var setPushDisabled:int=82;
 		
 		public static var GetDeviceID:int=1;
 		public static var isOpenDebugLog:int=2;

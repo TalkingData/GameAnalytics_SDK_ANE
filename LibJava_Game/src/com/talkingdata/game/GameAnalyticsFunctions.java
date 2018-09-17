@@ -125,6 +125,9 @@ public class GameAnalyticsFunctions implements FREFunction {
 			case TDFunctionType.openDebugLog:
 //				TalkingDataGA.DEBUG=true;
 				break;
+			case TDFunctionType.setPushDisabled:
+				TalkingDataGA.setPushDisabled();
+				break;
 			case TDFunctionType.test:
 				obj=FREObject.newObject("testGame");
 				break;

@@ -89,6 +89,16 @@ package com.talkingdata.game
 
 			}
 		}
+		public static function setPushDisabled():void{
+			try{
+				if(extContext==null){
+					extContext=ExtensionContext.createExtensionContext("com.talkingdata.game",null);
+				}
+				extContext.call(functionName,GameFunctionType.setPushDisabled);
+			}catch(err:Error){
+				
+			}
+		}
 
 	}
 }
