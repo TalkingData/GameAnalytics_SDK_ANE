@@ -13,21 +13,21 @@
 const int OnResume=20;
 const int OnPause=21;
 
-const  int SetAccountID=30;
-const int SetAccount_TYPE=31;
-const int SetAccount_Name=32;
-const int SetAccount_Level=33;
-const int SetAccount_Gender=34;
-const int SetAccount_Age=35;
-const int SetAccount_Server=36;
+const  int SetProfileID=30;
+const int SetProfile_TYPE=31;
+const int SetProfile_Name=32;
+const int SetProfile_Level=33;
+const int SetProfile_Gender=34;
+const int SetProfile_Age=35;
+const int SetProfile_Server=36;
 
-//int getAccountID=40;
-//int getAccount_TYPE=41;
-//int getAccount_Name=42;
-//int getAccount_Level=43;
-//int getAccount_Gender=44;
-//int getAccount_Age=45;
-//int getAccount_Server=46;
+//int getProfileID=40;
+//int getProfile_TYPE=41;
+//int getProfile_Name=42;
+//int getProfile_Level=43;
+//int getProfile_Gender=44;
+//int getProfile_Age=45;
+//int getProfile_Server=46;
 
 const int ChargeRequest=50;
 const int ChargeSuccess =51;
@@ -47,7 +47,7 @@ const int cmdDeviceID=1;
 const int isOpenDebugLog=2;
 const int setLocation=3;
 
-TDGAAccount *accountInstance;
+TDGAProfile *profileInstance;
 
 
 /*
@@ -70,65 +70,65 @@ TDGAAccount *accountInstance;
  public static var TYPE10:int =20;
  */
 
-void setPrivateAccountType(FREObject argv[]){
+void setPrivateProfileType(FREObject argv[]){
     int32_t type;
     FREGetObjectAsInt32(argv[1], &type);
-    TDGAAccountType accountType=kAccountAnonymous;
+    TDGAProfileType profileType=kProfileAnonymous;
     switch (type) {
         case 1:
-            accountType=kAccountRegistered;
+            profileType=kProfileRegistered;
             break;
         case 2:
-            accountType=kAccountSinaWeibo;
+            profileType=kProfileSinaWeibo;
             break;
         case 3:
-            accountType=kAccountQQ;
+            profileType=kProfileQQ;
             break;
         case 4:
-            accountType=kAccountTencentWeibo;
+            profileType=kProfileTencentWeibo;
             break;
         case 5:
-            accountType=kAccountND91;
+            profileType=kProfileND91;
             break;
 		case 6:
-            accountType=kAccountWeiXin;
+            profileType=kProfileTypeWeiXin;
             break;
         case 11:
-            accountType=kAccountType1;
+            profileType=kProfileType1;
             break;
         case 12:
-            accountType=kAccountType2;
+            profileType=kProfileType2;
             break;
         case 13:
-            accountType=kAccountType3;
+            profileType=kProfileType3;
             break;
         case 14:
-            accountType=kAccountType4;
+            profileType=kProfileType4;
             break;
         case 15:
-            accountType=kAccountType5;
+            profileType=kProfileType5;
             break;
         case 16:
-            accountType=kAccountType6;
+            profileType=kProfileType6;
             break;
         case 17:
-            accountType=kAccountType7;
+            profileType=kProfileType7;
             break;
         case 18:
-            accountType=kAccountType8;
+            profileType=kProfileType8;
             break;
         case 19:
-            accountType=kAccountType9;
+            profileType=kProfileType9;
             break;
         case 20:
-            accountType=kAccountType10;
+            profileType=kProfileType10;
             break;
         default:
             
             break;
     }
-    if (accountInstance) {
-        [accountInstance setAccountType:accountType];
+    if (profileInstance) {
+        [profileInstance setProfileType:profileType];
     }
 }
 
@@ -206,17 +206,17 @@ FREObject GameAnalyticsFunctions(FREContext ctx, void* funcData, uint32_t argc, 
     
     int command;
     
-    //field about account
+    //field about profile
     uint32_t appIDLen;
     uint32_t channelLen;
     const uint8_t * appID;
     const uint8_t * channel;
     
-    uint32_t accountIDLen;
-    const uint8_t *accountID;
+    uint32_t profileIDLen;
+    const uint8_t *profileID;
     
-    int32_t accountAge;
-    int32_t accountGender;
+    int32_t profileAge;
+    int32_t profileGender;
     
     int32_t userLevel;
     
@@ -257,48 +257,48 @@ FREObject GameAnalyticsFunctions(FREContext ctx, void* funcData, uint32_t argc, 
             break;
         case OnPause:
             break;
-        case SetAccountID:
-            FREGetObjectAsUTF8(argv[1], &accountIDLen, &accountID);
-            accountInstance=[TDGAAccount setAccount:[NSString stringWithUTF8String:(char*)accountID]];
+        case SetProfileID:
+            FREGetObjectAsUTF8(argv[1], &profileIDLen, &profileID);
+            profileInstance=[TDGAProfile setProfile:[NSString stringWithUTF8String:(char*)profileID]];
             break;
-        case SetAccount_Age:
-            FREGetObjectAsInt32(argv[1], &accountAge);
-            if (accountInstance) {
-                [accountInstance setAge:accountAge];
+        case SetProfile_Age:
+            FREGetObjectAsInt32(argv[1], &profileAge);
+            if (profileInstance) {
+                [profileInstance setAge:profileAge];
             }
             break;
-        case SetAccount_Gender:
-            FREGetObjectAsInt32(argv[1], &accountGender);
-            if (accountInstance) {
+        case SetProfile_Gender:
+            FREGetObjectAsInt32(argv[1], &profileGender);
+            if (profileInstance) {
                 TDGAGender gender=kGenderUnknown;
-                if (accountGender==1) {
+                if (profileGender==1) {
                     gender=kGenderMale;
-                }else if(accountGender==2){
+                }else if(profileGender==2){
                     gender=kGenderFemale;
                 }
-                [accountInstance setGender:gender];
+                [profileInstance setGender:gender];
             }
             break;
-        case SetAccount_Level:
+        case SetProfile_Level:
             FREGetObjectAsInt32(argv[1], &userLevel);
-            if(accountInstance){
-                [accountInstance setLevel:userLevel];
+            if(profileInstance){
+                [profileInstance setLevel:userLevel];
             }
             break;
-        case SetAccount_Name:
+        case SetProfile_Name:
             FREGetObjectAsUTF8(argv[1], &userNameLen, &userName);
-            if (accountInstance) {
-                [accountInstance setAccountName:[NSString stringWithUTF8String:(char*)userName]];
+            if (profileInstance) {
+                [profileInstance setProfileName:[NSString stringWithUTF8String:(char*)userName]];
             }
             break;
-        case SetAccount_Server:
+        case SetProfile_Server:
             FREGetObjectAsUTF8(argv[1], &serverNameLen,&serverName);
-            if (accountInstance) {
-                [accountInstance setGameServer:[NSString stringWithUTF8String:(char*)serverName]];
+            if (profileInstance) {
+                [profileInstance setGameServer:[NSString stringWithUTF8String:(char*)serverName]];
             }
             break;
-        case SetAccount_TYPE:
-            setPrivateAccountType(argv);
+        case SetProfile_TYPE:
+            setPrivateProfileType(argv);
             break;
         case ChargeRequest:
             chargeFromClien(argv);

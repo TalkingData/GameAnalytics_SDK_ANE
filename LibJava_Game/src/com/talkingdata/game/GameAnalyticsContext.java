@@ -5,14 +5,14 @@ import java.util.Map;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
-import com.tendcloud.tenddata.TDGAAccount;
+import com.tendcloud.tenddata.TDGAProfile;
 
 public class GameAnalyticsContext extends FREContext{
 
-	public TDGAAccount tdAccount;
+	public TDGAProfile tdProfile;
 	@Override
 	public void dispose() {
-		tdAccount=null;
+		tdProfile=null;
 	}
 
 	@Override

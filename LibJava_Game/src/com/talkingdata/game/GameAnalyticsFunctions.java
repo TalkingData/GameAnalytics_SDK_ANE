@@ -16,9 +16,10 @@ import com.adobe.fre.FREInvalidObjectException;
 import com.adobe.fre.FREObject;
 import com.adobe.fre.FRETypeMismatchException;
 import com.adobe.fre.FREWrongThreadException;
-import com.tendcloud.tenddata.TDGAAccount;
-import com.tendcloud.tenddata.TDGAAccount.AccountType;
-import com.tendcloud.tenddata.TDGAAccount.Gender;
+import com.tendcloud.tenddata.TDGAProfile;
+import com.tendcloud.tenddata.TDGAProfile.ProfileType;
+import com.tendcloud.tenddata.TDGAProfile.Gender;
+
 import com.tendcloud.tenddata.TDGAItem;
 import com.tendcloud.tenddata.TDGAMission;
 import com.tendcloud.tenddata.TDGAVirtualCurrency;
@@ -55,33 +56,33 @@ public class GameAnalyticsFunctions implements FREFunction {
 			case TDFunctionType.OnPause:
 				TalkingDataGA.onPause(ctx);
 				break;
-			case TDFunctionType.SetAccountID:
+			case TDFunctionType.SetProfileID:
 				String countID=arg1[1].getAsString();
-				exContext.tdAccount=TDGAAccount.setAccount(countID);
+				exContext.tdProfile=TDGAProfile.setProfile(countID);
 				break;
-			case TDFunctionType.SetAccount_Age:
+			case TDFunctionType.SetProfile_Age:
 				int age=arg1[1].getAsInt();
-				exContext.tdAccount.setAge(age);
+				exContext.tdProfile.setAge(age);
 				break;
-			case TDFunctionType.SetAccount_Gender:
+			case TDFunctionType.SetProfile_Gender:
 				int gender=arg1[1].getAsInt();
 				setGender(gender);
 				break;
-			case TDFunctionType.SetAccount_Level:
+			case TDFunctionType.SetProfile_Level:
 				int level=arg1[1].getAsInt();
-				exContext.tdAccount.setLevel(level);
+				exContext.tdProfile.setLevel(level);
 				break;
-			case TDFunctionType.SetAccount_Name:
+			case TDFunctionType.SetProfile_Name:
 				String name=arg1[1].getAsString();
-				exContext.tdAccount.setAccountName(name);
+				exContext.tdProfile.setProfileName(name);
 				break;
-			case TDFunctionType.SetAccount_Server:
+			case TDFunctionType.SetProfile_Server:
 				String server=arg1[1].getAsString();
-				exContext.tdAccount.setGameServer(server);
+				exContext.tdProfile.setGameServer(server);
 				break;
-			case TDFunctionType.SetAccount_TYPE:
-				int account_type=arg1[1].getAsInt();
-				setAccountType(account_type);
+			case TDFunctionType.SetProfile_TYPE:
+				int profile_type=arg1[1].getAsInt();
+				setProfileType(profile_type);
 				break;
 			case TDFunctionType.ChargeRequest:
 				onChargeReques(arg1);
@@ -126,7 +127,7 @@ public class GameAnalyticsFunctions implements FREFunction {
 //				TalkingDataGA.DEBUG=true;
 				break;
 			case TDFunctionType.setPushDisabled:
-				TalkingDataGA.setPushDisabled();
+				//TalkingDataGA.setPushDisabled();//没打push功能则需要注释掉
 				break;
 			case TDFunctionType.test:
 				obj=FREObject.newObject("testGame");
@@ -198,7 +199,7 @@ public class GameAnalyticsFunctions implements FREFunction {
 		}else if(gender==2){
 			g=Gender.FEMALE;
 		}
-		exContext.tdAccount.setGender(g);
+		exContext.tdProfile.setGender(g);
 	}
 	
 	private void onPurchase(FREObject[] objs) throws IllegalStateException, FRETypeMismatchException, FREInvalidObjectException, FREWrongThreadException{
@@ -233,62 +234,62 @@ public class GameAnalyticsFunctions implements FREFunction {
 	public static var TYPE9:int =19;
 	public static var TYPE10:int =20;
 	 */
-	private void setAccountType(int type){
-		AccountType at=AccountType.ANONYMOUS;
+	private void setProfileType(int type){
+		ProfileType at=ProfileType.ANONYMOUS;
 		switch (type) {
 		case 1:
-			at=AccountType.REGISTERED;
+			at=ProfileType.REGISTERED;
 			break;
 		case 2:
-			at=AccountType.SINA_WEIBO;
+			at=ProfileType.SINA_WEIBO;
 			break;
 		case 3:
-			at=AccountType.QQ;		
+			at=ProfileType.QQ;		
 			break;
 		case 4:
-			at=AccountType.QQ_WEIBO;
+			at=ProfileType.QQ_WEIBO;
 			break;
 		case 5:
-			at=AccountType.ND91;
+			at=ProfileType.ND91;
 			break;
 		case 6:
-			at=AccountType.WEIXIN;
+			at=ProfileType.WEIXIN;
 			break;
 		case 11:
-			at=AccountType.TYPE1;
+			at=ProfileType.TYPE1;
 			break;
 		case 12:
-			at=AccountType.TYPE2;
+			at=ProfileType.TYPE2;
 			break;
 		case 13:
-			at=AccountType.TYPE3;
+			at=ProfileType.TYPE3;
 			break;
 		case 14:
-			at=AccountType.TYPE4;
+			at=ProfileType.TYPE4;
 			break;
 		case 15:
-			at=AccountType.TYPE5;
+			at=ProfileType.TYPE5;
 			break;
 		case 16:
-			at=AccountType.TYPE6;
+			at=ProfileType.TYPE6;
 			break;
 		case 17:
-			at=AccountType.TYPE7;
+			at=ProfileType.TYPE7;
 			break;
 		case 18:
-			at=AccountType.TYPE8;
+			at=ProfileType.TYPE8;
 			break;
 		case 19:
-			at=AccountType.TYPE9;
+			at=ProfileType.TYPE9;
 			break;
 		case 20:
-			at=AccountType.TYPE10;
+			at=ProfileType.TYPE10;
 			break;
 		default:
 			
 			break;
 		}
-		exContext.tdAccount.setAccountType(at);
+		exContext.tdProfile.setProfileType(at);
 	}
 
 	private void onChargeSuccess(FREObject[] objs) throws IllegalStateException, FRETypeMismatchException, FREInvalidObjectException, FREWrongThreadException{
