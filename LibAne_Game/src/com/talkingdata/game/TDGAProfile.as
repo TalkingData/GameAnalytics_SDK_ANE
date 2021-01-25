@@ -41,7 +41,7 @@ package com.talkingdata.game
 				trace(err)	
 			}
 		}
-		public  function setProfiletAge(age:int):void{
+		public  function setProfileAge(age:int):void{
 			try{
 			TalkingDataGA.extContext.call(TalkingDataGA.functionName,GameFunctionType.SetProfile_Age,age);
 			}catch(err:Error){
