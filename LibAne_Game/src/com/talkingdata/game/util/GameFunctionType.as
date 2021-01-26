@@ -5,21 +5,21 @@ package com.talkingdata.game.util
 		public static var OnResume:int=20;
 		public static var OnPause:int=21;
 		
-		public static var SetAccountID:int=30;
-		public static var SetAccount_TYPE:int=31;
-		public static var SetAccount_Name:int=32;
-		public static var SetAccount_Level:int=33;
-		public static var SetAccount_Gender:int=34;
-		public static var SetAccount_Age:int=35;
-		public static var SetAccount_Server:int=36;
+		public static var SetProfileID:int=30;
+		public static var SetProfile_TYPE:int=31;
+		public static var SetProfile_Name:int=32;
+		public static var SetProfile_Level:int=33;
+		public static var SetProfile_Gender:int=34;
+		public static var SetProfile_Age:int=35;
+		public static var SetProfile_Server:int=36;
 		
-		public static var getAccountID:int=40;
-		public static var getAccount_TYPE:int=41;
-		public static var getAccount_Name:int=42;
-		public static var getAccount_Level:int=43;
-		public static var getAccount_Gender:int=44;
-		public static var getAccount_Age:int=45;
-		public static var getAccount_Server:int=46;
+		public static var getProfileID:int=40;
+		public static var getProfile_TYPE:int=41;
+		public static var getProfile_Name:int=42;
+		public static var getProfile_Level:int=43;
+		public static var getProfile_Gender:int=44;
+		public static var getProfile_Age:int=45;
+		public static var getProfile_Server:int=46;
 		
 		
 		public static var ChargeRequest:int=50;

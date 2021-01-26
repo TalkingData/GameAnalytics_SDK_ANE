@@ -1,8 +1,8 @@
 package com.talkingdata.game
 {
-	public class TDAccountType
-	{
-		
+	public class TDProfileType
+	{ 
+		 
 		public static var ANONYMOUS:int =0;
 		public static var REGISTERED:int =1;
 		public static var SINA_WEIBO:int =2;

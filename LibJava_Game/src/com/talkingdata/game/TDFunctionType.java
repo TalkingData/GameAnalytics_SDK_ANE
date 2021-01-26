@@ -4,21 +4,21 @@ public class TDFunctionType {
 	public final  static int OnResume=20;
 	public final  static int OnPause=21;
 
-	public final static int SetAccountID=30;
-	public final static int SetAccount_TYPE=31;
-	public final static int SetAccount_Name=32;
-	public final static int SetAccount_Level=33;
-	public final static int SetAccount_Gender=34;
-	public final static int SetAccount_Age=35;
-	public final static int SetAccount_Server=36;
-	
-	public final static int getAccountID=40;
-	public final static int getAccount_TYPE=41;
-	public final static int getAccount_Name=42;
-	public final static int getAccount_Level=43;
-	public final static int getAccount_Gender=44;
-	public final static int getAccount_Age=45;
-	public final static int getAccount_Server=46;
+	public final static int SetProfileID=30;
+	public final static int SetProfile_TYPE=31;
+	public final static int SetProfile_Name=32;
+	public final static int SetProfile_Level=33;
+	public final static int SetProfile_Gender=34;
+	public final static int SetProfile_Age=35;
+	public final static int SetProfile_Server=36;
+	                        
+	public final static int getProfileID=40;
+	public final static int getProfile_TYPE=41;
+	public final static int getProfile_Name=42;
+	public final static int getProfile_Level=43;
+	public final static int getProfile_Gender=44;
+	public final static int getProfile_Age=45;
+	public final static int getProfile_Server=46;
 	
 	
 	public final static int ChargeRequest=50;
